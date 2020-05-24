@@ -55,7 +55,9 @@ class LinkedList {
     return this.head;
   }
 
-  back() {}
+  back() {
+    
+  }
 
   insert(element, index) {
     if (index > 0 && index > this.size) return false;

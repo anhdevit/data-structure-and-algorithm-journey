@@ -4,6 +4,7 @@ class Array {
     this.length = 0;
     // Object to store elements.
     this.data = {};
+    this.capacity = 0;
   }
 
   size() {
@@ -11,11 +12,14 @@ class Array {
   }
 
   capacity() {
-    this.length;
+    this.capacity;
   }
 
   isEmpty() {
-    return this.length === 0;
+    this.length = 0;
+    // Object to store elements.
+    this.data = {};
+    this.capacity = 0;
   }
 
   itemAt(index) {
@@ -25,6 +29,9 @@ class Array {
   append(item) {
     this.data[this.length] = item;
     this.length++;
+    if (this.length > this.capacity) {
+      this.capacity *= 2;
+    }
     return this.data;
   }
 
@@ -34,6 +41,9 @@ class Array {
     }
     this.data[index] = item;
     this.length++;
+    if (this.length > this.capacity) {
+      this.capacity *= 2;
+    }
     return this.data;
   }
 
@@ -41,6 +51,9 @@ class Array {
     let item = this.data[this.length - 1];
     delete this.data[this.length - 1];
     this.length--;
+    if (this.length < this.capacity/2) {
+      this.capacity /= 2
+    }
     return this.data;
   }
 
@@ -50,6 +63,9 @@ class Array {
     }
     delete this.data[this.length - 1];
     this.length--;
+    if (this.length < this.capacity/2) {
+      this.capacity /= 2
+    }
     return this.data;
   }
 }
