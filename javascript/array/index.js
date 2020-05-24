@@ -16,10 +16,7 @@ class Array {
   }
 
   isEmpty() {
-    this.length = 0;
-    // Object to store elements.
-    this.data = {};
-    this.capacity = 0;
+    return this.length === 0
   }
 
   itemAt(index) {
