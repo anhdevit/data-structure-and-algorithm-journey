@@ -156,3 +156,6 @@ hash.insert('Tuan Anh', 20); // Will create a bucket at hash.storage[9] and inse
 hash.insert('Tinh Ngo', 25); // Will insert new node onto list at same bucket with new key value pair
 
 console.log(hash.search('Tinh Ngo')); // Should value at first node in the bucket (30)
+hash.delete('Tinh Ngo'); // Will insert new node onto list at same bucket with new key value pair
+
+console.log(hash); // Should value at first node in the bucket (30)
