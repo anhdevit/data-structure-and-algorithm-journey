@@ -20,6 +20,7 @@ There is only one duplicate number in the array, but it could be repeated more t
 */
 
 function question3(arr) {
+    // We can use Hash Map
     let objectKey = {}
     let duplicateNum = null
     for(let i = 0; i < arr.length; i++) {
@@ -30,6 +31,7 @@ function question3(arr) {
             objectKey[arr[i]] = 1
         }
     }
+    // Timecomplexcity is On
     return duplicateNum
 }
 
