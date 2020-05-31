@@ -22,14 +22,13 @@ rotate 4 steps to the right: 2->0->1->NULL
 
 */
 
-console.log("LinkedList", LinkedList);
-
 function question2(linkedList, k) {
-  linkedList.linkedList();
 
   for (let i = 0; i < k; i++) {
-      
+    // const currentNode = 
   }
+
+  return linkedList.printList()
 }
 
 // creating an object for the
@@ -201,10 +200,8 @@ console.log("testcase1", testcase1);
 
 var ll2 = new LinkedList();
 
+ll2.add(0);
 ll2.add(1);
 ll2.add(2);
-ll2.add(3);
-ll2.add(4);
-ll2.add(5);
 const testcase2 = question2(ll2, 4);
 console.log("testcase1", testcase2);
