@@ -33,33 +33,46 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
 */
 
 function question5(s, p) {
-    let caseAnagrams = {}
-    const arrString = []
-    for (let i = 0; i < p.length; i++) {
-        caseAnagrams[p[i]] = p[i]
+  let caseAnagrams = {};
+  const arrString = [];
+  for (let i = 0; i < p.length; i++) {
+    if (caseAnagrams[p[i]]) {
+      caseAnagrams[p[i]] = caseAnagrams[p[i]] + 1;
+    } else {
+      caseAnagrams[p[i]] = 1;
     }
-    console.log("caseAnagrams", caseAnagrams)
-    for (let i = 0; i < s.length; i++) {
-        let count = 0
-        let characterChecked = {}
-        for (let j = i; j < (i + p.length); j++) {
-
-            if (caseAnagrams[s[j]] && !characterChecked[s[j]]) {
-                // Save character checked
-                characterChecked[s[j]] = s[j]
-                count++
-            }
+  }
+  console.log("caseAnagrams", caseAnagrams);
+  for (let i = 0; i < s.length; i++) {
+    let count = 0;
+    let characterChecked = {};
+    for (let j = i; j < i + p.length; j++) {
+      console.log("caseAnagrams[s[j]]", caseAnagrams[s[j]]);
+      console.log("characterChecked[s[j]", characterChecked[s[j]]);
+      if (caseAnagrams[s[j]] && characterChecked[s[j]] !== caseAnagrams[s[j]]) {
+        // Save character checked
+        if (characterChecked[s[i]]) {
+          characterChecked[s[i]] = characterChecked[s[i]] + 1;
+        } else {
+          characterChecked[s[i]] = s[i];
         }
-        if (count === p.length) {
-            arrString.push(i)
-        }
+        count++;
+      }
     }
-    // console.log("caseAnagrams", arrString)
-    return arrString
+    if (count === p.length) {
+      arrString.push(i);
+    }
+  }
+  // console.log("caseAnagrams", arrString)
+  return arrString;
 }
 // Pass
-const testcase1 = question5("cbaebabacd", "abc")
-console.log("testcase1", testcase1)
+const testcase1 = question5("cbaebabacd", "abc");
+console.log("testcase1", testcase1);
 // Pass
-const testcase2 = question5("abab", "ab")
-console.log("testcase2", testcase2)
+const testcase2 = question5("abab", "ab");
+console.log("testcase2", testcase2);
+
+// Not pass
+const testcase3 = question5("baa", "aa");
+console.log("testcase3", testcase3);
