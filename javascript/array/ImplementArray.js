@@ -1,18 +1,16 @@
 class Array {
-  constructor() {
-    // It store the length of array.
+  constructor(capacity) {
     this.length = 0;
-    // Object to store elements.
-    this.data = {};
-    this.capacity = 0;
+    this.capacity = capacity
+    this.data = {}
   }
 
   size() {
-    this.length;
+    return this.length
   }
 
   capacity() {
-    this.capacity;
+    return this.capacity
   }
 
   isEmpty() {
@@ -20,52 +18,46 @@ class Array {
   }
 
   itemAt(index) {
-    return this.array[index];
+    if(this.data[index]) {
+      return this.data[index]
+    }
+    return null
   }
 
   append(item) {
-    this.data[this.length] = item;
-    this.length++;
-    if (this.length > this.capacity) {
-      this.capacity *= 2;
+    this.data[this.length] = item 
+    this.length++
+    if(this.length > this.capacity) {
+      this.capacity *= 2
     }
-    return this.data;
+    return this.data
   }
 
   insert(item, index) {
-    for (let i = this.length; i >= index; i--) {
-      this.data[i] = this.data[i - 1];
+    for(let i = this.length; i >= index; i--) {
+      this.data[i] = this.data[i-1]
     }
-    this.data[index] = item;
-    this.length++;
-    if (this.length > this.capacity) {
-      this.capacity *= 2;
-    }
-    return this.data;
+    this.data[index] = item
+    this.length++
+    return this.data
   }
 
   pop() {
-    let item = this.data[this.length - 1];
-    delete this.data[this.length - 1];
-    this.length--;
-    if (this.length < this.capacity/2) {
-      this.capacity /= 2
+    if (this.length > 0) {
+      this.data(this.length - 1)
+      delete this.data[this.length - 1]
+      this.length--
+      return this.data
     }
-    return this.data;
+    return null
   }
 
   removeAt(index) {
-    for (let i = index; i < this.length - 1; i++) {
-      this.data[i] = this.data[i + 1];
+    for(let i = index; i < this.length - 1; i++ ) {
+      this.data[i] =  this.data[i+1]
     }
-    delete this.data[this.length - 1];
-    this.length--;
-    if (this.length < this.capacity/2) {
-      this.capacity /= 2
-    }
-    return this.data;
+    delete this.data[this.length - 1]
+    this.length--
+    return this.data
   }
 }
-
-
-
