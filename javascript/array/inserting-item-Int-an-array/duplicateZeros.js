@@ -29,8 +29,17 @@ var duplicateZeros =  function(arr) {
         }
     }
     console.log("duplicateZeros -> arr", arr)
-    console.log("duplicateZeros -> timeComplexcity", timeComplexcity)
 }
 
 const testcase1 = duplicateZeros([1,0,2,3,0,4,5,0])
 const testcase2 = duplicateZeros([1,2,3])
+
+// var duplicateZeros = function(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//       if(arr[i] === 0) {
+//         arr.splice(i, 0, 0);
+//         arr.pop();
+//         i+=1;
+//       }
+//     }
+//   };
